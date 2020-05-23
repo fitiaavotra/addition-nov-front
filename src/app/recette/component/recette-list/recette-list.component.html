@@ -1,0 +1,50 @@
+<div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Description</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recette of recettes$ | async">
+          <td>{{ recette.name }}</td>
+          <td>{{ recette.description }}</td>
+          <td>
+            <button (click)="showUpdateForm(recette)" class="btn btn-primary" style="margin: 5px">Modifier</button>
+            <button (click)="deleteRecette(recette.id)" class="btn btn-danger" style="margin: 5px">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="isUpdateActivated" style="margin-top: 50px; margin-left: 50px;">
+      <h4>Modifier Recette</h4>
+      <form (ngSubmit)="updateRecette(updateForm)" #updateForm="ngForm">
+        <div class="form-group">
+          <label for="name"> Nom</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            required
+            [(ngModel)]="recetteToBeUpdated.name"
+            style="width: 400px"/>
+        </div>
+        <div class="form-group">
+          <label for="side">Description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            class="form-control"
+            required
+            [(ngModel)]="recetteToBeUpdated.description"
+            style="width: 400px"/>
+        </div>
+        <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Valider</button>
+      </form>
+    </div>
+  </div>

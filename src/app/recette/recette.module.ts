@@ -7,10 +7,17 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RecetteReducer } from './store/recette.reducers';
 
+import {CreateRecetteComponent} from './component/create-recette/create-recette.component'
+import {RecetteListComponent} from './component/recette-list/recette-list.component'
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+    CreateRecetteComponent,
+    RecetteListComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +25,7 @@ import { RecetteReducer } from './store/recette.reducers';
     EffectsModule.forFeature([RecetteEffects])
   ],
   providers:[RecetteService],
-  bootstrap:[]
+  bootstrap:[],
+  exports: [CreateRecetteComponent,RecetteListComponent]
 })
 export class RecetteModule { }
