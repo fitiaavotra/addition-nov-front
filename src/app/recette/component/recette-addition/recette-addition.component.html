@@ -1,6 +1,40 @@
+<div>
+    <select class="form-control" (change)="OnSelectedRecette($event.target.value)">
+        <option></option>
+        <option [value]="recette.id" *ngFor="let recette of recettes$ | async">{{recette.name}} </option>
+    </select>
+
+    <br>
+    <br>
+
+    <form [formGroup]="myForm">
+        
+        <div formArrayName="ingredient">
+            <h3>Ingredient</h3>
+            <div class="form-group" *ngFor="let phone of IngredientForms.controls; let i=index" 
+                [formGroupName]="i">
+                <label>Designation:</label>
+                <input  formControlName="Designation">
+                <label>Prix:</label>
+                <input formControlName="Prix">
+            </div>
+        </div>
 
 
-<select class="form-control">
-    <option></option>
- <option *ngFor="let recette of recettes$ | async">{{recette.name}}</option>
-</select>
+        <div formArrayName="boisson">
+            <h3>Boisson</h3>
+            <div class="form-group" *ngFor="let bois of BoissonForms.controls; let i=index" 
+                [formGroupName]="i">
+                <label>Designation:</label>
+                <input  formControlName="Designation">
+                <label>Prix:</label>
+                <input formControlName="Prix">
+                <button (click)="deleteBoisson(i)">Supprimer</button>
+
+            </div>
+        </div>
+
+        <button (click)="AddBoisson()">Ajouter Une Boisson</button>
+        
+    </form>
+</div>

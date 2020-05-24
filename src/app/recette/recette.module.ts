@@ -1,7 +1,7 @@
 import { RecetteEffects } from './store/recette.effects';
 import { RecetteService } from './service/recette.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -24,7 +24,7 @@ import {RecetteAdditionComponent} from './component/recette-addition/recette-add
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature('recettes',RecetteReducer),
     EffectsModule.forFeature([RecetteEffects]),
     FormsModule,

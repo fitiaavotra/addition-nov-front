@@ -33,6 +33,6 @@ export class RecetteService {
     }
 
     GetDetail(Id:string): Observable<Ingredients[]>  {
-        return this.http.get<Ingredients[]>(this.EndPointUrl+'/api/Recette/GetDetail');
+        return this.http.get<Ingredients[]>(this.EndPointUrl+'/api/Recette/GetDetail/?Id=' + Id);
     }
 }
