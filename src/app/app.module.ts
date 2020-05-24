@@ -21,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {RecetteResolver} from './recette/recette.resolver'
 import { AppComponent } from './app.component';
 import { RecetteAdditionComponent } from './recette/component/recette-addition/recette-addition.component';
+import { NoopAnimationsModule,BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -36,7 +38,9 @@ const routes = [
   },
   {path: 'create-recette', component: CreateRecetteComponent},
   {path: '**', redirectTo: 'recette'},
-  {path:'recette-addition',component:RecetteAdditionComponent},
+  {path:'recette-addition',component:RecetteAdditionComponent,resolve: {
+    recette: RecetteResolver
+  }},
 ];
 
 @NgModule({

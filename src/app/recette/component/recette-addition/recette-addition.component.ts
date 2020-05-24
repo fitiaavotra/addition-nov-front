@@ -26,27 +26,4 @@ export class RecetteAdditionComponent implements OnInit {
   ngOnInit() {
     this.recettes$ = this.store.select(getAllRecette);
   }
-
-  deleteRecette(Id: string) {
-    this.store.dispatch(recetteActionTypes.deleteRecette({Id}));
-  }
-
-  showUpdateForm(recette: Recette) {
-    this.recetteToBeUpdated = {...recette};
-    this.isUpdateActivated = true;
-  }
-
-  updateRecette(updateForm) {
-    const update: Update<Recette> = {
-      id: this.recetteToBeUpdated.id,
-      changes: {
-        ...this.recetteToBeUpdated,
-        ...updateForm.value
-      }
-    };
-
-    this.store.dispatch(recetteActionTypes.updateRecette({update}));
-    this.isUpdateActivated = false;
-    this.recetteToBeUpdated = null;
-  }
 }

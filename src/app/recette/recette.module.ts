@@ -9,6 +9,8 @@ import { RecetteReducer } from './store/recette.reducers';
 
 import {CreateRecetteComponent} from './component/create-recette/create-recette.component'
 import {RecetteListComponent} from './component/recette-list/recette-list.component'
+import {RecetteAdditionComponent} from './component/recette-addition/recette-addition.component'
+
 
 
 
@@ -16,16 +18,19 @@ import {RecetteListComponent} from './component/recette-list/recette-list.compon
   declarations: [
 
     CreateRecetteComponent,
-    RecetteListComponent
+    RecetteListComponent,
+    RecetteAdditionComponent
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     StoreModule.forFeature('recettes',RecetteReducer),
-    EffectsModule.forFeature([RecetteEffects])
+    EffectsModule.forFeature([RecetteEffects]),
+    FormsModule,
   ],
   providers:[RecetteService],
   bootstrap:[],
-  exports: [CreateRecetteComponent,RecetteListComponent]
+  exports: [CreateRecetteComponent,RecetteListComponent,RecetteAdditionComponent]
 })
 export class RecetteModule { }

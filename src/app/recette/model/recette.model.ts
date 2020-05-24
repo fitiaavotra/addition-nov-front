@@ -4,3 +4,9 @@ export interface Recette {
     name:string;
     description:string;
 }
+export interface Ingredients{
+    id:string;
+    name:string;
+    description:string;
+    idRecette:string;
+}

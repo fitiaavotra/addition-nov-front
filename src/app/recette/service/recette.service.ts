@@ -1,4 +1,4 @@
-import {Recette} from './../model/recette.model';
+import {Recette,Ingredients} from './../model/recette.model';
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -30,5 +30,9 @@ export class RecetteService {
     
     updateRecette(Id: string | number, changes: Partial<Recette>): Observable<any> {
         return this.http.put(this.EndPointUrl+'/api/Recette/' + Id, changes);
+    }
+
+    GetDetail(Id:string): Observable<Ingredients[]>  {
+        return this.http.get<Ingredients[]>(this.EndPointUrl+'/api/Recette/GetDetail');
     }
 }
