@@ -1,4 +1,4 @@
-import { getAllRecette,GetDetailRecette } from './../../store/recette.selectors';
+import { getAllRecette } from './../../store/recette.selectors';
 import { recetteActionTypes } from './../../store/recette.actions';
 import { AppState } from './../../../store/reducers/index';
 import { Store } from '@ngrx/store';
