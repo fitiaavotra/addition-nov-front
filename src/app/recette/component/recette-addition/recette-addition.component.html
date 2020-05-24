@@ -16,7 +16,7 @@
                 <label>Designation:</label>
                 <input  formControlName="Designation">
                 <label>Prix:</label>
-                <input formControlName="Prix">
+                <input type="number" formControlName="Prix">
             </div>
         </div>
 
@@ -28,13 +28,19 @@
                 <label>Designation:</label>
                 <input  formControlName="Designation">
                 <label>Prix:</label>
-                <input formControlName="Prix">
+                <input type="number" formControlName="Prix">
                 <button (click)="deleteBoisson(i)">Supprimer</button>
 
             </div>
         </div>
 
         <button (click)="AddBoisson()">Ajouter Une Boisson</button>
+        <br>
+        <label>Total Boisson:</label>
+        <input formControlName="sumBoisson">
+        <br>
+        <label>Total Commande:</label>
+        <input formControlName="sumCommande">
         
     </form>
 </div>
