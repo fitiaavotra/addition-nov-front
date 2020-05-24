@@ -20,6 +20,7 @@ import {RecetteListComponent} from './recette/component/recette-list/recette-lis
 import { AppRoutingModule } from './app-routing.module';
 import {RecetteResolver} from './recette/recette.resolver'
 import { AppComponent } from './app.component';
+import { RecetteAdditionComponent } from './recette/component/recette-addition/recette-addition.component';
 
 
 
@@ -34,7 +35,8 @@ const routes = [
     }
   },
   {path: 'create-recette', component: CreateRecetteComponent},
-  {path: '**', redirectTo: 'recette'}
+  {path: '**', redirectTo: 'recette'},
+  {path:'recette-addition',component:RecetteAdditionComponent},
 ];
 
 @NgModule({

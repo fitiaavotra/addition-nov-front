@@ -11,9 +11,9 @@ import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-recette-list',
-  templateUrl: './recette-list.component.html'
+  templateUrl: './recette-addition.component.html'
 })
-export class RecetteListComponent implements OnInit {
+export class RecetteAdditionComponent implements OnInit {
 
   recettes$: Observable<Recette[]>;
 
